@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model API_Info {
+  id           Int     @id @default(autoincrement())
+  name         String
+  madeby       String
+  madein       String
+  version      String
+  repository   String
+  runningsince String
+  description  String
+  dedicatedto  String  @unique
+  swagger      Boolean
+  swagger_url  String
+}
+
+model Dog {
+  id        Int     @id @default(autoincrement())
+  name      String?
+  group     String?
+  section   String?
+  country   String?
+  fci_url   String?
+  image_url String?
+  pdf_url   String?
+}
